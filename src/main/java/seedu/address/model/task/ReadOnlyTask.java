@@ -10,7 +10,6 @@ public interface ReadOnlyTask {
 
     Title getTitle();
     Description getDescription();
-    Email getEmail();
     Location getLocation();
 
     /**
@@ -27,7 +26,6 @@ public interface ReadOnlyTask {
                 || (other != null // this is first to avoid NPE below
                 && other.getTitle().equals(this.getTitle()) // state checks here onwards
                 && other.getDescription().equals(this.getDescription())
-                && other.getEmail().equals(this.getEmail())
                 && other.getLocation().equals(this.getLocation()));
     }
 
@@ -40,7 +38,6 @@ public interface ReadOnlyTask {
                 .append(" Phone: ")
                 .append(getDescription())
                 .append(" Email: ")
-                .append(getEmail())
                 .append(" Address: ")
                 .append(getLocation())
                 .append(" Tags: ");
