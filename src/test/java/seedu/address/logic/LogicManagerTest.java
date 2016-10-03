@@ -164,7 +164,7 @@ public class LogicManagerTest {
         assertCommandBehavior(
                 "add []\\[;] p/12345 e/valid@e.mail a/valid, address", Title.MESSAGE_NAME_CONSTRAINTS);
         assertCommandBehavior(
-                "add Valid Name p/not_numbers e/valid@e.mail a/valid, address", Phone.MESSAGE_PHONE_CONSTRAINTS);
+                "add Valid Name p/not_numbers e/valid@e.mail a/valid, address", Description.MESSAGE_PHONE_CONSTRAINTS);
         assertCommandBehavior(
                 "add Valid Name p/12345 e/notAnEmail a/valid, address", Email.MESSAGE_EMAIL_CONSTRAINTS);
         assertCommandBehavior(
@@ -384,7 +384,7 @@ public class LogicManagerTest {
 
         Task adam() throws Exception {
             Title name = new Title("Adam Brown");
-            Phone privatePhone = new Phone("111111");
+            Description privatePhone = new Description("111111");
             Email email = new Email("adam@gmail.com");
             Location privateAddress = new Location("111, alpha street");
             Tag tag1 = new Tag("tag1");
@@ -403,7 +403,7 @@ public class LogicManagerTest {
         Task generatePerson(int seed) throws Exception {
             return new Task(
                     new Title("Person " + seed),
-                    new Phone("" + Math.abs(seed)),
+                    new Description("" + Math.abs(seed)),
                     new Email(seed + "@email"),
                     new Location("House of " + seed),
                     new UniqueTagList(new Tag("tag" + Math.abs(seed)), new Tag("tag" + Math.abs(seed + 1)))
@@ -417,7 +417,7 @@ public class LogicManagerTest {
             cmd.append("add ");
 
             cmd.append(p.getTitle().toString());
-            cmd.append(" p/").append(p.getPhone());
+            cmd.append(" p/").append(p.getDescription());
             cmd.append(" e/").append(p.getEmail());
             cmd.append(" a/").append(p.getLocation());
 
@@ -502,7 +502,7 @@ public class LogicManagerTest {
         Task generatePersonWithName(String name) throws Exception {
             return new Task(
                     new Title(name),
-                    new Phone("1"),
+                    new Description("1"),
                     new Email("1@email"),
                     new Location("House of 1"),
                     new UniqueTagList(new Tag("tag"))

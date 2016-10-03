@@ -65,15 +65,15 @@ public class TestUtil {
     private static Task[] getSamplePersonData() {
         try {
             return new Task[]{
-                    new Task(new Title("Ali Muster"), new Phone("9482424"), new Email("hans@google.com"), new Location("4th street"), new UniqueTagList()),
-                    new Task(new Title("Boris Mueller"), new Phone("87249245"), new Email("ruth@google.com"), new Location("81th street"), new UniqueTagList()),
-                    new Task(new Title("Carl Kurz"), new Phone("95352563"), new Email("heinz@yahoo.com"), new Location("wall street"), new UniqueTagList()),
-                    new Task(new Title("Daniel Meier"), new Phone("87652533"), new Email("cornelia@google.com"), new Location("10th street"), new UniqueTagList()),
-                    new Task(new Title("Elle Meyer"), new Phone("9482224"), new Email("werner@gmail.com"), new Location("michegan ave"), new UniqueTagList()),
-                    new Task(new Title("Fiona Kunz"), new Phone("9482427"), new Email("lydia@gmail.com"), new Location("little tokyo"), new UniqueTagList()),
-                    new Task(new Title("George Best"), new Phone("9482442"), new Email("anna@google.com"), new Location("4th street"), new UniqueTagList()),
-                    new Task(new Title("Hoon Meier"), new Phone("8482424"), new Email("stefan@mail.com"), new Location("little india"), new UniqueTagList()),
-                    new Task(new Title("Ida Mueller"), new Phone("8482131"), new Email("hans@google.com"), new Location("chicago ave"), new UniqueTagList())
+                    new Task(new Title("Ali Muster"), new Description("9482424"), new Email("hans@google.com"), new Location("4th street"), new UniqueTagList()),
+                    new Task(new Title("Boris Mueller"), new Description("87249245"), new Email("ruth@google.com"), new Location("81th street"), new UniqueTagList()),
+                    new Task(new Title("Carl Kurz"), new Description("95352563"), new Email("heinz@yahoo.com"), new Location("wall street"), new UniqueTagList()),
+                    new Task(new Title("Daniel Meier"), new Description("87652533"), new Email("cornelia@google.com"), new Location("10th street"), new UniqueTagList()),
+                    new Task(new Title("Elle Meyer"), new Description("9482224"), new Email("werner@gmail.com"), new Location("michegan ave"), new UniqueTagList()),
+                    new Task(new Title("Fiona Kunz"), new Description("9482427"), new Email("lydia@gmail.com"), new Location("little tokyo"), new UniqueTagList()),
+                    new Task(new Title("George Best"), new Description("9482442"), new Email("anna@google.com"), new Location("4th street"), new UniqueTagList()),
+                    new Task(new Title("Hoon Meier"), new Description("8482424"), new Email("stefan@mail.com"), new Location("little india"), new UniqueTagList()),
+                    new Task(new Title("Ida Mueller"), new Description("8482131"), new Email("hans@google.com"), new Location("chicago ave"), new UniqueTagList())
             };
         } catch (IllegalValueException e) {
             assert false;
