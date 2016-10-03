@@ -1,15 +1,15 @@
 package seedu.address.testutil;
 
 import seedu.address.model.tag.UniqueTagList;
-import seedu.address.model.person.*;
+import seedu.address.model.task.*;
 
 /**
  * A mutable person object. For testing only.
  */
-public class TestPerson implements ReadOnlyPerson {
+public class TestPerson implements ReadOnlyTask {
 
-    private Name name;
-    private Address address;
+    private Title name;
+    private Location address;
     private Email email;
     private Phone phone;
     private UniqueTagList tags;
@@ -18,11 +18,11 @@ public class TestPerson implements ReadOnlyPerson {
         tags = new UniqueTagList();
     }
 
-    public void setName(Name name) {
+    public void setName(Title name) {
         this.name = name;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(Location address) {
         this.address = address;
     }
 
@@ -35,7 +35,7 @@ public class TestPerson implements ReadOnlyPerson {
     }
 
     @Override
-    public Name getName() {
+    public Title getTitle() {
         return name;
     }
 
@@ -50,7 +50,7 @@ public class TestPerson implements ReadOnlyPerson {
     }
 
     @Override
-    public Address getAddress() {
+    public Location getLocation() {
         return address;
     }
 
@@ -66,10 +66,10 @@ public class TestPerson implements ReadOnlyPerson {
 
     public String getAddCommand() {
         StringBuilder sb = new StringBuilder();
-        sb.append("add " + this.getName().fullName + " ");
+        sb.append("add " + this.getTitle().fullName + " ");
         sb.append("p/" + this.getPhone().value + " ");
         sb.append("e/" + this.getEmail().value + " ");
-        sb.append("a/" + this.getAddress().value + " ");
+        sb.append("a/" + this.getLocation().value + " ");
         this.getTags().getInternalList().stream().forEach(s -> sb.append("t/" + s.tagName + " "));
         return sb.toString();
     }
