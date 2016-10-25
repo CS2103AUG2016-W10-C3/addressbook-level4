@@ -4,18 +4,10 @@ import seedu.address.commons.core.GuiSettings;
 
 import java.util.Objects;
 
-import javafx.geometry.Rectangle2D;
-import javafx.stage.Screen;
-
-//@@author A0135767U
 /**
  * Represents User's preferences.
  */
 public class UserPrefs {
-	
-    private static final Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-    public static final double WINDOW_WIDTH = primaryScreenBounds.getWidth() / 5;
-    public static final double WINDOW_HEIGHT = primaryScreenBounds.getHeight();
 
     public GuiSettings guiSettings;
 
@@ -28,10 +20,7 @@ public class UserPrefs {
     }
 
     public UserPrefs(){
-    	int x = (int) (primaryScreenBounds.getMinX() + primaryScreenBounds.getMaxX() - WINDOW_WIDTH);
-        int y = (int) (primaryScreenBounds.getMinY() + primaryScreenBounds.getMaxY() - WINDOW_HEIGHT);
-                
-        this.setGuiSettings(WINDOW_WIDTH, WINDOW_HEIGHT, x, y);
+        this.setGuiSettings(500, 500, 0, 0);
     }
 
     public void setGuiSettings(double width, double height, int x, int y) {
