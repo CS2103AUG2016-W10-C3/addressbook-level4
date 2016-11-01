@@ -143,6 +143,9 @@ public class Parser {
 
         case ConfirmCommand.COMMAND_WORD:
             return new ConfirmCommand();
+            
+        case MinimizeCommand.COMMAND_WORD:
+            return new MinimizeCommand();
 
         default:
             return new IncorrectCommand(MESSAGE_UNKNOWN_COMMAND);
