@@ -10,6 +10,7 @@ import seedu.address.model.task.Time;
 import seedu.address.model.task.ReadOnlyTask;
 import seedu.address.model.task.UniqueTaskList;
 import seedu.address.model.task.UniqueTaskList.TaskNotFoundException;
+import seedu.address.commons.events.model.AddTaskEvent;
 import seedu.address.commons.events.model.ToDoChangedEvent;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.core.ComponentManager;
@@ -80,7 +81,15 @@ public class ModelManager extends ComponentManager implements Model {
         toDo.addTask(task);
         updateFilteredListToShowAll();
         indicateAddressBookChanged();
+        int index = filteredTasks.indexOf(task);
+        indicateTaskAdded(index, filteredTasks.get(index));
     }
+    
+    //@@author A0135812L
+    private void indicateTaskAdded(int i, ReadOnlyTask taskAdded) {
+        raise(new AddTaskEvent(i, taskAdded));
+    }
+    //@@author
 
     @Override
     public synchronized void markTask(ReadOnlyTask target) throws TaskNotFoundException {
