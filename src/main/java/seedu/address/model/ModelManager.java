@@ -11,6 +11,7 @@ import seedu.address.model.task.ReadOnlyTask;
 import seedu.address.model.task.UniqueTaskList;
 import seedu.address.model.task.UniqueTaskList.TaskNotFoundException;
 import seedu.address.commons.events.model.TaskAddedEvent;
+import seedu.address.commons.events.model.TaskEditedEvent;
 import seedu.address.commons.events.model.ToDoChangedEvent;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.core.ComponentManager;
@@ -91,7 +92,7 @@ public class ModelManager extends ComponentManager implements Model {
     }
     
     private void indicateTaskEdited(int i, ReadOnlyTask taskEdited) {
-        raise(new TaskAddedEvent(i, taskEdited));
+        raise(new TaskEditedEvent(i, taskEdited));
     }
     //@@author
 
@@ -99,6 +100,8 @@ public class ModelManager extends ComponentManager implements Model {
     public synchronized void markTask(ReadOnlyTask target) throws TaskNotFoundException {
         toDo.toggleTaskStatus(target);
         indicateAddressBookChanged();
+        int index = filteredTasks.indexOf(target);
+        indicateTaskEdited(index, filteredTasks.get(index));
     }
 
     //=========== Filtered Task List Accessors ===============================================================
